@@ -10,6 +10,7 @@ import {
 import { DevelopingContentGuide } from './developing-content-guide';
 import { CompletingDevelopmentGuide } from './completing-development-guide';
 import { SlideAnatomyGuide } from './slide-anatomy-guide';
+import { CourseRepositoryGuide } from './course-repository-guide';
 
 const guideSections = [
   {
@@ -105,11 +106,17 @@ const GuideList = ({ items }: { items: any[] }) => (
 
 export function DocumentationGuide() {
   return (
-    <Accordion type="multiple" className="w-full" defaultValue={['slide-anatomy']}>
+    <Accordion type="multiple" className="w-full" defaultValue={['course-repository']}>
       <AccordionItem value="courseware-guide">
         <AccordionTrigger className="text-lg font-headline">Courseware Guide</AccordionTrigger>
         <AccordionContent>
           <GuideList items={guideSections} />
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="course-repository">
+        <AccordionTrigger className="text-lg font-headline">Course Repository Structure</AccordionTrigger>
+        <AccordionContent>
+          <CourseRepositoryGuide />
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="slide-anatomy">
