@@ -1,7 +1,8 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { SummarizationTool } from './summarization-tool';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { List } from 'lucide-react';
+import { List, BookText } from 'lucide-react';
+import { DocumentationGuide } from './documentation-guide';
 
 export default function InstructorPage() {
   const exampleYml = `
@@ -25,8 +26,9 @@ labs:
     <div className="container py-8">
       <h1 className="text-3xl font-bold mb-6 font-headline">Instructor Dashboard</h1>
       <Tabs defaultValue="summarizer">
-        <TabsList className="grid w-full grid-cols-2 max-w-lg">
+        <TabsList className="grid w-full grid-cols-3 max-w-lg">
           <TabsTrigger value="summarizer">AI Summarizer</TabsTrigger>
+          <TabsTrigger value="documentation">Documentation</TabsTrigger>
           <TabsTrigger value="courses">My Courses</TabsTrigger>
         </TabsList>
         <TabsContent value="summarizer" className="mt-6">
@@ -60,6 +62,21 @@ labs:
               </Card>
             </div>
           </div>
+        </TabsContent>
+        <TabsContent value="documentation" className="mt-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <BookText /> Courseware Guide
+              </CardTitle>
+              <CardDescription>
+                A complete guide to developing courseware on this platform.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <DocumentationGuide />
+            </CardContent>
+          </Card>
         </TabsContent>
         <TabsContent value="courses" className="mt-6">
            <Card>
