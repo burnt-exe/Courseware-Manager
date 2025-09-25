@@ -2,7 +2,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { SummarizationTool } from './summarization-tool';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { BookText, Edit, ArrowRight, Video, Users, HelpCircle, BarChart2 } from 'lucide-react';
+import { BookText, Edit, Video, Users, HelpCircle, BarChart2 } from 'lucide-react';
 import { DocumentationGuide } from './documentation-guide';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -51,31 +51,31 @@ const popularResources = [
         icon: <Video className="h-5 w-5 text-primary" />,
         title: "Test Video",
         description: "Send us a sample video and get expert feedback.",
-        href: "#"
+        href: "/instructor/resources/test-video"
     },
     {
         icon: <Users className="h-5 w-5 text-primary" />,
         title: "Instructor Community",
         description: "Connect with experienced instructors. Ask questions, browse discussions, and more.",
-        href: "#"
+        href: "/instructor/resources/instructor-community"
     },
     {
         icon: <BookText className="h-5 w-5 text-primary" />,
         title: "Teaching Center",
         description: "Learn about best practices for teaching on our platform.",
-        href: "#"
+        href: "/instructor/resources/teaching-center"
     },
     {
         icon: <BarChart2 className="h-5 w-5 text-primary" />,
         title: "Marketplace Insights",
         description: "Validate your course topic by exploring our marketplace supply and demand.",
-        href: "#"
+        href: "/instructor/resources/marketplace-insights"
     },
     {
         icon: <HelpCircle className="h-5 w-5 text-primary" />,
         title: "Help and Support",
         description: "Browse our Help Center or contact our support team.",
-        href: "#"
+        href: "/instructor/resources/help-and-support"
     }
 ];
 
@@ -190,15 +190,17 @@ labs:
                 <h2 className="text-2xl font-bold mb-4 font-headline">Have questions? Here are our most popular instructor resources.</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {popularResources.map(resource => (
-                         <Card key={resource.title} className="hover:shadow-lg transition-shadow">
-                            <CardHeader className="flex flex-row items-center gap-4">
-                                {resource.icon}
-                                <CardTitle className="text-lg">{resource.title}</CardTitle>
-                            </CardHeader>
-                             <CardContent>
-                                 <p className="text-sm text-muted-foreground">{resource.description}</p>
-                             </CardContent>
-                         </Card>
+                         <Link href={resource.href} key={resource.title} className="block hover:shadow-lg transition-shadow rounded-lg">
+                            <Card className="h-full">
+                                <CardHeader className="flex flex-row items-center gap-4">
+                                    {resource.icon}
+                                    <CardTitle className="text-lg">{resource.title}</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="text-sm text-muted-foreground">{resource.description}</p>
+                                </CardContent>
+                            </Card>
+                         </Link>
                     ))}
                 </div>
               </div>
