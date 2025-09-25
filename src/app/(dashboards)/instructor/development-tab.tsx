@@ -20,7 +20,7 @@ const categories = {
     { name: "Communication", sub: ["Communication Skills", "Presentation Skills", "Public Speaking", "Writing", "PowerPoint"] },
     { name: "Management", sub: [] },
     { name: "Sales", sub: [] },
-    { name "Business Strategy", sub: [] },
+    { name: "Business Strategy", sub: [] },
     { name: "Operations", sub: [] },
     { name: "Project Management", sub: [] },
     { name: "Business Law", sub: [] },
@@ -110,6 +110,7 @@ const categories = {
     { name: "Arts & Crafts", sub: [] },
     { name: "Beauty & Makeup", sub: [] },
     { name: "Esoteric Practices", sub: [] },
+
     { name: "Food & Beverage", sub: [] },
     { name: "Gaming", sub: [] },
     { name: "Home Improvement & Gardening", sub: [] },
