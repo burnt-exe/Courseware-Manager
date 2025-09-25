@@ -67,7 +67,7 @@ const salesReportingFeatures = [
     icon: <DollarSign className="h-6 w-6 text-primary" />,
     title: 'Sales & Revenue Tracking',
     description: 'Track revenue by course, bundle, and region with multi-currency support.',
-    href: '#',
+    href: '/partner/sales-reporting',
   },
   {
     icon: <TrendingUp className="h-6 w-6 text-primary" />,
@@ -135,7 +135,7 @@ export default function PartnerPage() {
 
         <div>
           <h2 className="text-2xl font-bold mb-4 font-headline flex items-center gap-2">
-            <BarChart className="h-7 w-7" /> Sales & Reporting
+            <BarChart className="h-7 w-7" /> Sales &amp; Reporting
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {salesReportingFeatures.map((tool) => (
