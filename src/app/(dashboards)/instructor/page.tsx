@@ -2,12 +2,14 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { SummarizationTool } from './summarization-tool';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { BookText, Edit } from 'lucide-react';
+import { BookText, Edit, ArrowRight, Video, Users, HelpCircle, BarChart2 } from 'lucide-react';
 import { DocumentationGuide } from './documentation-guide';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { DevelopmentTab } from './development-tab';
 
 const courses = [
   {
@@ -24,22 +26,58 @@ const courses = [
     status: 'In Review',
     imageId: 'course-2',
   },
-  {
-    id: '3',
-    title: 'Data Engineering on GCP',
-    description: 'A deep dive into building data pipelines and processing big data on GCP.',
-    status: 'Published',
-    imageId: 'course-3',
-  },
-  {
-    id: '4',
-    title: 'Cloud Architecture Design',
-    description: 'Design and plan a cloud solution architecture. Learn about best practices and patterns.',
-    status: 'Draft',
-    imageId: 'course-4',
-  },
 ];
 
+const resources = [
+    {
+        title: "Create an Engaging Course",
+        description: "Whether you've been teaching for years or are teaching for the first time, you can make an engaging course. We've compiled resources and best practices to help you get to the next level, no matter where you're starting.",
+        href: "#"
+    },
+    {
+        title: "Get Started with Video",
+        description: "Quality video lectures can set your course apart. Use our resources to learn the basics.",
+        href: "#"
+    },
+    {
+        title: "Build Your Audience",
+        description: "Set your course up for success by building your audience.",
+        href: "#"
+    }
+];
+
+const popularResources = [
+    {
+        icon: <Video className="h-5 w-5 text-primary" />,
+        title: "Test Video",
+        description: "Send us a sample video and get expert feedback.",
+        href: "#"
+    },
+    {
+        icon: <Users className="h-5 w-5 text-primary" />,
+        title: "Instructor Community",
+        description: "Connect with experienced instructors. Ask questions, browse discussions, and more.",
+        href: "#"
+    },
+    {
+        icon: <BookText className="h-5 w-5 text-primary" />,
+        title: "Teaching Center",
+        description: "Learn about best practices for teaching on our platform.",
+        href: "#"
+    },
+    {
+        icon: <BarChart2 className="h-5 w-5 text-primary" />,
+        title: "Marketplace Insights",
+        description: "Validate your course topic by exploring our marketplace supply and demand.",
+        href: "#"
+    },
+    {
+        icon: <HelpCircle className="h-5 w-5 text-primary" />,
+        title: "Help and Support",
+        description: "Browse our Help Center or contact our support team.",
+        href: "#"
+    }
+];
 
 export default function InstructorPage() {
   const exampleYml = `
@@ -82,11 +120,93 @@ labs:
     <div className="container py-8">
       <h1 className="text-3xl font-bold mb-6 font-headline">Instructor Dashboard</h1>
       <Tabs defaultValue="courses">
-        <TabsList className="grid w-full grid-cols-3 max-w-lg">
+        <TabsList className="grid w-full grid-cols-4 max-w-xl">
+          <TabsTrigger value="courses">My Courses</TabsTrigger>
+          <TabsTrigger value="development">Development</TabsTrigger>
           <TabsTrigger value="summarizer">AI Summarizer</TabsTrigger>
           <TabsTrigger value="documentation">Documentation</TabsTrigger>
-          <TabsTrigger value="courses">My Courses</TabsTrigger>
         </TabsList>
+        <TabsContent value="courses" className="mt-6">
+           <div className="space-y-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {courses.map((course) => {
+                  const image = getImage(course.imageId);
+                  return (
+                    <Card key={course.id} className="flex flex-col sm:flex-row">
+                      {image && (
+                        <div className="sm:w-1/3">
+                          <Image
+                            src={image.imageUrl}
+                            alt={image.description}
+                            data-ai-hint={image.imageHint}
+                            width={300}
+                            height={200}
+                            className="rounded-t-lg sm:rounded-l-lg sm:rounded-t-none object-cover h-full w-full aspect-[3/2] sm:aspect-auto"
+                          />
+                        </div>
+                      )}
+                      <div className="flex flex-col flex-1">
+                        <CardHeader>
+                            <CardTitle>{course.title}</CardTitle>
+                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                                {getStatusBadge(course.status)}
+                                <Badge variant="outline">Public</Badge>
+                            </div>
+                        </CardHeader>
+                        <CardFooter className="mt-auto">
+                          <Button className="w-full">
+                            <Edit className="mr-2 h-4 w-4" />
+                            Edit / manage course
+                          </Button>
+                        </CardFooter>
+                      </div>
+                    </Card>
+                  );
+                })}
+              </div>
+
+              <div>
+                <h2 className="text-2xl font-bold mb-4 font-headline">Based on your experience, we think these resources will be helpful.</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {resources.map(resource => (
+                        <Card key={resource.title} className="flex flex-col">
+                            <CardHeader>
+                                <CardTitle className="text-xl">{resource.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent className="flex-grow">
+                                <p className="text-muted-foreground">{resource.description}</p>
+                            </CardContent>
+                            <CardFooter>
+                                <Button variant="outline" asChild>
+                                    <Link href={resource.href}>Get Started</Link>
+                                </Button>
+                            </CardFooter>
+                        </Card>
+                    ))}
+                </div>
+              </div>
+
+              <div>
+                <h2 className="text-2xl font-bold mb-4 font-headline">Have questions? Here are our most popular instructor resources.</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {popularResources.map(resource => (
+                         <Card key={resource.title} className="hover:shadow-lg transition-shadow">
+                            <CardHeader className="flex flex-row items-center gap-4">
+                                {resource.icon}
+                                <CardTitle className="text-lg">{resource.title}</CardTitle>
+                            </CardHeader>
+                             <CardContent>
+                                 <p className="text-sm text-muted-foreground">{resource.description}</p>
+                             </CardContent>
+                         </Card>
+                    ))}
+                </div>
+              </div>
+           </div>
+        </TabsContent>
+        <TabsContent value="development" className="mt-6">
+          <DevelopmentTab />
+        </TabsContent>
         <TabsContent value="summarizer" className="mt-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div>
@@ -133,52 +253,6 @@ labs:
               <DocumentationGuide />
             </CardContent>
           </Card>
-        </TabsContent>
-        <TabsContent value="courses" className="mt-6">
-           <Card>
-             <CardHeader>
-               <CardTitle>My Courses</CardTitle>
-                <CardDescription>
-                  A list of courses you are developing.
-                </CardDescription>
-             </CardHeader>
-             <CardContent>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {courses.map((course) => {
-                    const image = getImage(course.imageId);
-                    return (
-                      <Card key={course.id} className="flex flex-col">
-                        {image && (
-                          <div className="overflow-hidden rounded-t-lg">
-                            <Image
-                              src={image.imageUrl}
-                              alt={image.description}
-                              data-ai-hint={image.imageHint}
-                              width={600}
-                              height={400}
-                              className="rounded-t-lg object-cover aspect-[3/2] transition-transform duration-300 hover:scale-105"
-                            />
-                          </div>
-                        )}
-                        <CardHeader>
-                          <div className="flex justify-between items-start">
-                            <CardTitle>{course.title}</CardTitle>
-                            {getStatusBadge(course.status)}
-                          </div>
-                          <CardDescription>{course.description}</CardDescription>
-                        </CardHeader>
-                        <CardFooter>
-                          <Button className="w-full">
-                            <Edit className="mr-2 h-4 w-4" />
-                            Edit Course
-                          </Button>
-                        </CardFooter>
-                      </Card>
-                    );
-                  })}
-                </div>
-             </CardContent>
-           </Card>
         </TabsContent>
       </Tabs>
     </div>
