@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/accordion';
 import { DevelopingContentGuide } from './developing-content-guide';
 import { CompletingDevelopmentGuide } from './completing-development-guide';
+import { SlideAnatomyGuide } from './slide-anatomy-guide';
 
 const guideSections = [
   {
@@ -104,11 +105,17 @@ const GuideList = ({ items }: { items: any[] }) => (
 
 export function DocumentationGuide() {
   return (
-    <Accordion type="multiple" className="w-full" defaultValue={['developing-content']}>
+    <Accordion type="multiple" className="w-full" defaultValue={['slide-anatomy']}>
       <AccordionItem value="courseware-guide">
         <AccordionTrigger className="text-lg font-headline">Courseware Guide</AccordionTrigger>
         <AccordionContent>
           <GuideList items={guideSections} />
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="slide-anatomy">
+        <AccordionTrigger className="text-lg font-headline">Slide Anatomy</AccordionTrigger>
+        <AccordionContent>
+          <SlideAnatomyGuide />
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="developing-content">
