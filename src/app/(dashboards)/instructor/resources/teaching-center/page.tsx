@@ -1,6 +1,6 @@
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { BookText, Film, Lightbulb, Mic, Target } from "lucide-react";
+import { BookText, Film, Lightbulb, Mic, Target, Users } from "lucide-react";
 import Link from "next/link";
 
 const articles = [
