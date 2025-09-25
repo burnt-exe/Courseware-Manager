@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { BookOpen, UserCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -9,8 +11,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { usePathname } from 'next/navigation';
 
 export function Header() {
+  const pathname = usePathname();
+  const role = pathname.split('/')[1] || 'student'; // Default to student if no role in path
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center">
@@ -38,10 +44,16 @@ export function Header() {
                   </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Profile</DropdownMenuItem>
-                <DropdownMenuItem>Settings</DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href={`/${role}/profile`}>Profile</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href={`/${role}/settings`}>Settings</Link>
+                </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Log out</DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/">Log out</Link>
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </nav>
