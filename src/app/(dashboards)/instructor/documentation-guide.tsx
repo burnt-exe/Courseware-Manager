@@ -1,3 +1,4 @@
+
 'use client';
 
 import {
@@ -7,6 +8,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { DevelopingContentGuide } from './developing-content-guide';
+import { CompletingDevelopmentGuide } from './completing-development-guide';
 
 const guideSections = [
   {
@@ -102,7 +104,7 @@ const GuideList = ({ items }: { items: any[] }) => (
 
 export function DocumentationGuide() {
   return (
-    <Accordion type="multiple" className="w-full">
+    <Accordion type="multiple" className="w-full" defaultValue={['developing-content']}>
       <AccordionItem value="courseware-guide">
         <AccordionTrigger className="text-lg font-headline">Courseware Guide</AccordionTrigger>
         <AccordionContent>
@@ -113,6 +115,12 @@ export function DocumentationGuide() {
         <AccordionTrigger className="text-lg font-headline">Developing Content</AccordionTrigger>
         <AccordionContent>
           <DevelopingContentGuide />
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="completing-development">
+        <AccordionTrigger className="text-lg font-headline">Completing Development</AccordionTrigger>
+        <AccordionContent>
+          <CompletingDevelopmentGuide />
         </AccordionContent>
       </AccordionItem>
     </Accordion>
