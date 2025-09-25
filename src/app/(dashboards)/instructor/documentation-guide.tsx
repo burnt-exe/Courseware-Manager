@@ -1,4 +1,3 @@
-
 'use client';
 
 import {
@@ -11,6 +10,7 @@ import { DevelopingContentGuide } from './developing-content-guide';
 import { CompletingDevelopmentGuide } from './completing-development-guide';
 import { SlideAnatomyGuide } from './slide-anatomy-guide';
 import { CourseRepositoryGuide } from './course-repository-guide';
+import { CourseYmlGuide } from './course-yml-guide';
 
 const guideSections = [
   {
@@ -117,6 +117,12 @@ export function DocumentationGuide() {
         <AccordionTrigger className="text-lg font-headline">Course Repository Structure</AccordionTrigger>
         <AccordionContent>
           <CourseRepositoryGuide />
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="course-yml">
+        <AccordionTrigger className="text-lg font-headline">Course.yml Guide</AccordionTrigger>
+        <AccordionContent>
+          <CourseYmlGuide />
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="slide-anatomy">
