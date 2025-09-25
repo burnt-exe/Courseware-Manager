@@ -1,3 +1,28 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "course-1",
+      "description": "Abstract lines representing network connections.",
+      "imageUrl": "https://images.unsplash.com/photo-1738082956257-06cde4444b1c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhYnN0cmFjdCUyMG5ldHdvcmt8ZW58MHx8fHwxNzU4Njg3MTAzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract network"
+    },
+    {
+      "id": "course-2",
+      "description": "A person coding on a laptop.",
+      "imageUrl": "https://images.unsplash.com/photo-1672385252168-041b18d5ad37?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjb2RpbmclMjBsYXB0b3B8ZW58MHx8fHwxNzU4NzE2ODQ1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "coding laptop"
+    },
+    {
+      "id": "course-3",
+      "description": "A server room with racks of servers.",
+      "imageUrl": "https://images.unsplash.com/photo-1680992046615-065f58bcb4d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzZXJ2ZXIlMjByb29tfGVufDB8fHx8MTc1ODc4MTQzOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "server room"
+    },
+    {
+      "id": "course-4",
+      "description": "A diagram of a cloud computing architecture.",
+      "imageUrl": "https://images.unsplash.com/photo-1513012372342-f0031630af0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjbG91ZCUyMGFyY2hpdGVjdHVyZXxlbnwwfHx8fDE3NTg3OTk5MjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cloud architecture"
+    }
+  ]
 }
