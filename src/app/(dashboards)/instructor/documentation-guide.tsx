@@ -101,7 +101,7 @@ const GuideList = ({ items }: { items: any[] }) => (
 
 export function DocumentationGuide() {
   return (
-    <Accordion type="multiple" collapsible className="w-full">
+    <Accordion type="multiple" className="w-full">
       <AccordionItem value="courseware-guide">
         <AccordionTrigger className="text-lg font-headline">Courseware Guide</AccordionTrigger>
         <AccordionContent>
