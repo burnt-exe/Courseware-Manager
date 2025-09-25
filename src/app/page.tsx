@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BookOpen, Briefcase, ShieldCheck, User, ArrowRight } from 'lucide-react';
+import { BookOpen, Briefcase, ShieldCheck, User, ArrowRight, Building } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -29,6 +29,12 @@ export default function Home() {
       title: 'Approver',
       description: 'Review release builds, perform quality control checks, and approve courseware for deployment.',
       href: '/approver',
+    },
+    {
+      icon: <Building className="h-8 w-8 text-primary" />,
+      title: 'Partner / Reseller',
+      description: 'Manage customer accounts, track sales, and access partner-specific resources.',
+      href: '/partner',
     },
   ];
 
@@ -62,7 +68,7 @@ export default function Home() {
                 Select your role to access a tailored dashboard with the tools and information you need.
               </p>
             </div>
-            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 pt-12 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 pt-12 sm:grid-cols-2 lg:grid-cols-4">
               {roles.map((role) => (
                 <Card key={role.title} className="flex flex-col transition-transform transform hover:-translate-y-2 hover:shadow-xl">
                   <CardHeader className="items-center pt-8">
