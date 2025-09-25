@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { DevelopingContentGuide } from './developing-content-guide';
 
 const guideSections = [
   {
@@ -106,6 +107,12 @@ export function DocumentationGuide() {
         <AccordionTrigger className="text-lg font-headline">Courseware Guide</AccordionTrigger>
         <AccordionContent>
           <GuideList items={guideSections} />
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="developing-content">
+        <AccordionTrigger className="text-lg font-headline">Developing Content</AccordionTrigger>
+        <AccordionContent>
+          <DevelopingContentGuide />
         </AccordionContent>
       </AccordionItem>
     </Accordion>

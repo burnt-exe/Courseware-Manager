@@ -25,7 +25,7 @@ labs:
   return (
     <div className="container py-8">
       <h1 className="text-3xl font-bold mb-6 font-headline">Instructor Dashboard</h1>
-      <Tabs defaultValue="summarizer">
+      <Tabs defaultValue="documentation">
         <TabsList className="grid w-full grid-cols-3 max-w-lg">
           <TabsTrigger value="summarizer">AI Summarizer</TabsTrigger>
           <TabsTrigger value="documentation">Documentation</TabsTrigger>
