@@ -50,7 +50,7 @@ export default function StudentPage() {
   return (
     <div className="container py-8">
       <h1 className="text-3xl font-bold mb-6 font-headline">My Courses</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
         {courses.map((course) => {
           const image = getImage(course.imageId);
           return (
