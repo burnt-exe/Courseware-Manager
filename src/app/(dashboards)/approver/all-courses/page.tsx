@@ -24,7 +24,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { MoreHorizontal, ShieldCheck } from 'lucide-react';
+import { MoreHorizontal, Book } from 'lucide-react';
 
 const builds = [
   {
@@ -64,11 +64,11 @@ const builds = [
   },
 ];
 
-export default function ApproverPage() {
+export default function AllCoursesPage() {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case 'Pending':
-        return <Badge variant="warning" className="animate-pulse">Pending</Badge>;
+        return <Badge variant="warning">Pending</Badge>;
       case 'Approved':
         return <Badge variant="success">Approved</Badge>;
       case 'Rejected':
@@ -80,15 +80,15 @@ export default function ApproverPage() {
 
   return (
     <div className="container py-8">
-       <div className="flex items-center gap-4 mb-6">
-        <ShieldCheck className="h-8 w-8 text-primary" />
-        <h1 className="text-3xl font-bold font-headline">Pending Build Reviews</h1>
+      <div className="flex items-center gap-4 mb-6">
+        <Book className="h-8 w-8 text-primary" />
+        <h1 className="text-3xl font-bold font-headline">All Courses</h1>
       </div>
       <Card>
         <CardHeader>
-          <CardTitle>Pending Approvals</CardTitle>
+          <CardTitle>Course Build History</CardTitle>
           <CardDescription>
-            Review and approve or reject the following courseware release builds.
+            A complete history of all courseware release builds.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -106,7 +106,7 @@ export default function ApproverPage() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {builds.filter(b => b.status === 'Pending').map((build) => (
+              {builds.map((build) => (
                 <TableRow key={`${build.course}-${build.version}`}>
                   <TableCell className="font-medium">{build.course}</TableCell>
                   <TableCell>
@@ -126,9 +126,6 @@ export default function ApproverPage() {
                       <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
                         <DropdownMenuItem>View Details</DropdownMenuItem>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem>Approve</DropdownMenuItem>
-                        <DropdownMenuItem className="text-destructive focus:bg-destructive/10 focus:text-destructive">Reject</DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </TableCell>
