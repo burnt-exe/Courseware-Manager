@@ -10,13 +10,14 @@ import {
   SidebarMenuButton,
   SidebarInset,
 } from '@/components/ui/sidebar';
-import { Book, Users, Code, LineChart, MessageSquare, ShieldCheck } from 'lucide-react';
+import { Book, Users, Code, LineChart, MessageSquare, ShieldCheck, ClipboardList } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const menuItems = [
   { href: '/approver', label: 'Pending Reviews', icon: ShieldCheck },
   { href: '/approver/all-courses', label: 'All Courses', icon: Book },
+  { href: '/approver/customer-course-requests', label: 'Customer Course Requests', icon: ClipboardList },
   { href: '/approver/instructors', label: 'Instructors', icon: Users },
   { href: '/approver/courseware-developers', label: 'Courseware Developers', icon: Code },
   { href: '/approver/course-tracking', label: 'Course Tracking', icon: LineChart },
